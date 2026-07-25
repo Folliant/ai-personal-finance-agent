@@ -12,6 +12,8 @@
 8. The response is returned to the mobile UI.
 
 Schema:
+
+```
                          User
                            |
                            v
@@ -51,7 +53,7 @@ Schema:
                                          |
                                          v
                               Mobile Chat UI
-
+```
 
 ## Components
 
