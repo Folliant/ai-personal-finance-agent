@@ -1,0 +1,35 @@
+version: "3.1"
+
+services:
+  agent:
+    image: python:3.13
+    container_name: agent
+    working_dir: /app
+    env_file:
+      - ../agent/.env
+    volumes:
+      - ../agent:/app
+    ports:
+      - "8000:8000"
+    command: sh -c "pip install poetry && poetry install && poetry run start"
+    networks:
+      - app-network
+
+  frontend:
+    image: node:24.17.0
+    container_name: frontend
+    working_dir: /app
+    env_file:
+      - ../frontend/.env
+    volumes:
+      - ../frontend:/app
+    ports:
+      - "5173:5173"
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    depends_on:
+      - agent
+    networks:
+      - app-network
+
+networks:
+  app-network:
