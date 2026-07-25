@@ -135,10 +135,12 @@ Requires:
 
 ## Run
 
+### Environment Variables
+
 Prepare environment variables for:
 
-- agent/.env
-- frontend/.env
+- Agent: `agent/.env` (see `agent/.example.env`)
+- Frontend: `frontend/.env` (see `frontend/.example.env`)
 
 The application can be started in two ways.
 
