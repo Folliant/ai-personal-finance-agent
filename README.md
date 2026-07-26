@@ -154,16 +154,20 @@ docker compose -f docker/docker-compose.yml up
 
 ### Option 2: Run locally
 
-Install dependencies:
+#### Backend
 
 ```bash
+cd agent
 poetry install
+poetry run pystart
 ```
 
-Start the application:
+#### Frontend
 
 ```bash
-poetry run pystart
+cd frontend
+npm install
+npm run dev
 ```
 
 ## Requirements
@@ -173,15 +177,11 @@ poetry run pystart
 
 ## Tests
 
-Install dependencies:
+### Backend
 
 ```bash
+cd agent
 poetry install
-```
-
-Run tests:
-
-```bash
 poetry run pytest
 ```
 
